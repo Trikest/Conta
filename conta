@@ -1,0 +1,65 @@
+import java.util.ArrayList;
+
+class Conta {
+    private String numero;
+    private double saldo;
+    private String nomeCliente;
+
+    public Conta(String numero, double saldo, String nomeCliente) {
+        this.numero = numero;
+        this.saldo = saldo;
+        this.nomeCliente = nomeCliente;
+    }
+
+    // Getters e setters
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
+    }
+
+    public String getNomeCliente() {
+        return nomeCliente;
+    }
+
+    public void setNomeCliente(String nomeCliente) {
+        this.nomeCliente = nomeCliente;
+    }
+
+    public void deposito(double valor) {
+        saldo += valor;
+    }
+
+    public void saque(double valor) {
+        saldo -= valor;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Conta outraConta = (Conta) obj;
+        return numero.equals(outraConta.numero);
+    }
+}
+
+class ContaNaoEncontradaException extends Exception {
+    public ContaNaoEncontradaException(String mensagem) {
+        super(mensagem);
+    }
+}

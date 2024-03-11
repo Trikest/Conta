@@ -1,0 +1,23 @@
+public class Main {
+    public static void main(String[] args) {
+        Banco banco = new Banco();
+
+        Conta conta1 = new Conta("001", 1000.0, "Cliente 1");
+        Conta conta2 = new Conta("002", 2000.0, "Cliente 2");
+        Conta conta3 = new Conta("003", 3000.0, "Cliente 3");
+
+        banco.adicionarConta(conta1);
+        banco.adicionarConta(conta2);
+        banco.adicionarConta(conta3);
+
+        banco.depositar("001", 500.0);
+        banco.sacar("002", 300.0);
+
+        for (Conta conta : banco.getContas()) {
+            System.out.println("Número da Conta: " + conta.getNumero());
+            System.out.println("Saldo: " + conta.getSaldo());
+            System.out.println("Nome do Cliente: " + conta.getNomeCliente());
+            System.out.println();
+        }
+    }
+}
